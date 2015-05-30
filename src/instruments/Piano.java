@@ -1,14 +1,6 @@
-package builders;
+package instruments;
 
-import scales.MajorPentatonic;
-import scales.PentatonicScale;
-
-import java.util.ArrayList;
-
-/**
- * Created by gildekel on 4/12/15.
- */
-public class PianoBuilder {
+public class Piano {
 
     private ArrayList<Integer> piano;
     private int lowestKey;
