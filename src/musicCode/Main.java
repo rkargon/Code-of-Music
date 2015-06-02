@@ -1,27 +1,23 @@
 package musicCode;
 
-import static jm.constants.Durations.EN;
-import static jm.constants.Durations.QN;
-import static jm.constants.Pitches.C3;
-import static jm.constants.Pitches.C4;
-import static jm.constants.Scales.MAJOR_SCALE;
-import static jm.constants.Volumes.PP;
-import jm.music.data.Note;
+import jm.JMC;
+import jm.music.data.Part;
+import jm.music.data.Phrase;
+import jm.music.data.Score;
 import jm.util.Play;
 
-public class Main {
+public class Main implements JMC {
   public static void main(String[] args) {
-    Play.midi(new Note(C4, QN, PP));
-    Play.midi(new Note(C3, EN));
+    Score s = new Score("Test Score");
+    Part p = new Part(PIANO);
+    s.add(p);
+    Phrase ph = new Phrase();
+    p.add(ph);
 
-    final int m = (int) (Math.random() * 86 + 20);
-    while (true) {
-      final Note n = new Note((int) (Math.random() * 86 + 20), QN);
-      if (n.isScale(MAJOR_SCALE) == false) {
-        continue;
-      }
-      Play.midi(n);
+    MarkovNoteGenerator gen = new MarkovNoteGenerator();
+    for (int i = 0; i < 100; i++) {
+      ph.add(gen.nextNote());
     }
+    Play.midi(s);
   }
-
 }
