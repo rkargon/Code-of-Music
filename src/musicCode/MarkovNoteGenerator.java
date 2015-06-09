@@ -12,9 +12,15 @@ public class MarkovNoteGenerator implements JMC {
   }
 
   public Note nextNote() {
-    int pitch = currentNote.getPitch();
-    int newpitch = Util.clamp(pitch + (int) (Math.random() * 5) - 2, CN1, G9);
-    Note newNote = currentNote.copy();
+    if (currentNote.sameDuration(new Note(C4, QUARTER_NOTE, MEZZO_FORTE))) {
+      currentNote = new Note(C4, EIGHTH_NOTE, MEZZO_FORTE);
+    } else {
+      currentNote = new Note(C4, QUARTER_NOTE, MEZZO_FORTE);
+    }
+    final int pitch = currentNote.getPitch();
+    final int newpitch = Util.clamp(pitch + (int) (Math.random() * 5) - 2,
+        CN1, G9);
+    final Note newNote = currentNote.copy();
     newNote.setPitch(newpitch);
     currentNote = newNote;
     return newNote.copy();

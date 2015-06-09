@@ -1,5 +1,7 @@
 package musicCode;
 
+import jm.music.data.Note;
+
 /**
  * Utility functions.
  *
@@ -13,5 +15,9 @@ public class Util {
 
   public static int clamp(int v, int min, int max) {
     return Math.max(Math.min(v, max), min);
+  }
+
+  public static String printNote(Note note) {
+    return note.toString();
   }
 }
