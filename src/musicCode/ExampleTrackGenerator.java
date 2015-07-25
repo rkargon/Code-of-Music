@@ -10,12 +10,9 @@ public class ExampleTrackGenerator extends TrackGenerator {
     final Track track = trackN;
     final Phrase ph = new Phrase();
     track.add(ph);
-    ph.setTempo(140);
+    ph.setTempo(180);
 
     final MarkovNoteGenerator gen = new MarkovNoteGenerator();
-    for (int i = 0; i < 10; i++) {
-      ph.add(gen.nextNote());
-    }
 
     final int[] chord = { 59, 61, 64 };
     final int[] chord2 = { 56, 59, 64 };

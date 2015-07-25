@@ -7,7 +7,7 @@ public class Main implements JMC {
 
     Track track = new Track("Track1", ELECTRIC_PIANO);
 
-    final TrackGenerator trackGen = new ExampleTrackGenerator();
+    final TrackGenerator trackGen = new TestTrackGenerator();
 
     track = trackGen.generate(track);
 
