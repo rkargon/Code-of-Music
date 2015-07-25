@@ -1,8 +1,9 @@
-package musicCode;
+package generators;
 
 import jm.music.data.Phrase;
+import musicCode.Track;
 
-public class CalifornicationTrackGenerator extends TrackGenerator {
+public class CalifornicationTrackGenerator implements TrackGenerator {
 
   @Override
   public Track generate(Track trackN) {

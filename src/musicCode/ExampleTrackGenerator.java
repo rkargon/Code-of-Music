@@ -1,8 +1,10 @@
 package musicCode;
 
+import generators.MarkovGenerator;
+import generators.TrackGenerator;
 import jm.music.data.Phrase;
 
-public class ExampleTrackGenerator extends TrackGenerator {
+public class ExampleTrackGenerator implements TrackGenerator {
 
   @Override
   public Track generate(Track trackN) {
@@ -12,7 +14,7 @@ public class ExampleTrackGenerator extends TrackGenerator {
     track.add(ph);
     ph.setTempo(180);
 
-    final MarkovNoteGenerator gen = new MarkovNoteGenerator();
+    final MarkovGenerator gen = new MarkovGenerator();
 
     final int[] chord = { 59, 61, 64 };
     final int[] chord2 = { 56, 59, 64 };

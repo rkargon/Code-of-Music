@@ -1,11 +1,12 @@
-package musicCode;
+package generators;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import jm.music.data.Phrase;
+import musicCode.Track;
 
-public class TestTrackGenerator extends TrackGenerator {
+public class TestTrackGenerator implements TrackGenerator {
 
   @Override
   public Track generate(Track trackN) {
@@ -58,12 +59,12 @@ public class TestTrackGenerator extends TrackGenerator {
      * final int[] chordB1 = { c3, e3, g3 }; final int[] chordB2 = { d3, f3, a3
      * }; final int[] chordB3 = { d3, b2, g2 }; final int[] chordB4 = { c3, a2,
      * f2 };
-     * 
+     *
      * for (int i = 0; i < 8; i++) {
-     * 
+     *
      * ph.addChord(chordB1, 2.0); ph.addChord(chordB2, 2.0);
      * ph.addChord(chordB3, 2.0); ph.addChord(chordB4, 2.0);
-     * 
+     *
      * }
      */
 
