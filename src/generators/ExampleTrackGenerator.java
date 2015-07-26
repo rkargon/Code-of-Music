@@ -1,8 +1,7 @@
-package musicCode;
+package generators;
 
-import generators.MarkovGenerator;
-import generators.TrackGenerator;
 import jm.music.data.Phrase;
+import musicCode.Track;
 
 public class ExampleTrackGenerator implements TrackGenerator {
 

@@ -52,6 +52,9 @@ public class TestTrackGenerator implements TrackGenerator {
 
       System.out.println(chord);
 
+      printTonic(key.getBaseNote());
+      System.out.println(c3);
+
       ph.addChord(toIntArray(chord), Math.random() * 0.1 + 1.95);
     }
 
@@ -71,6 +74,11 @@ public class TestTrackGenerator implements TrackGenerator {
     return track;
   }
 
+  public void printTonic(int n) {
+    System.out.println(((Integer) n).toString() + " = "
+        + (char) ((n - 46) % 7 + 65));
+  }
+
   int[] toIntArray(List<Integer> list) {
     final int[] ret = new int[list.size()];
     for (int i = 0; i < ret.length; i++)
@@ -83,6 +91,7 @@ public class TestTrackGenerator implements TrackGenerator {
     System.out.println(baseNote);
 
     final int[] notePattern = { 0, 2, 4, 5, 7, 9, 11 };
+    // final int[] notePattern = { 0, 2, 3, 5, 7, 8, 10 };
     final List<Integer> notes = new ArrayList<>();
     for (final int note : notePattern) {
       notes.add(baseNote + note);
@@ -99,12 +108,26 @@ public class TestTrackGenerator implements TrackGenerator {
     final List<Integer[]> chords = new ArrayList<>();
 
     final Integer[] major = { 0, 2, 4 };
-    final Integer[] minor = { 0, 1, 4 };
-    final Integer[] other = { 0, 3, 5 };
+    final Integer[] major5 = { 0, 2 };
+    final Integer[] power = { 0, 4 };
+    final Integer[] sus = { 0, 3, 4 };
+    final Integer[] sus2 = { 0, 1, 4 };
+    final Integer[] sixth = { 0, 2, 4, 5 };
+    final Integer[] sixth5 = { 0, 2, 5 };
+    final Integer[] sixth9 = { 0, 2, 5, 8 };
+    final Integer[] seventh = { 0, 2, 4, 6 };
+    final Integer[] seventh5 = { 0, 2, 6 };
 
     chords.add(major);
-    chords.add(minor);
-    // chords.add(other);
+    chords.add(major5);
+    chords.add(power);
+    chords.add(sus);
+    chords.add(sus2);
+    chords.add(sixth);
+    chords.add(sixth5);
+    chords.add(sixth9);
+    chords.add(seventh);
+    chords.add(seventh5);
 
     return chords;
   }
