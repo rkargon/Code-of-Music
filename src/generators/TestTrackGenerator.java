@@ -24,9 +24,11 @@ public class TestTrackGenerator implements TrackGenerator {
     final int notesInOctave = 7;
     final int octaveCount = 12;
 
+    int lowestNote = 100;
     for (int i = 0; i < 20000; i++) {
       final int newValue = baseNote + baseOctave * notesInOctave
-          + (int) (Math.random() * 4) - 2 + (int) (Math.random() * 4) - 2;
+          + randomRange(-2, 1) + randomRange(-2, 1);
+      lowestNote = Math.min(lowestNote, newValue);
       baseNote = (newValue + notesInOctave) % notesInOctave;
       baseOctave = newValue / notesInOctave;
 
@@ -34,8 +36,8 @@ public class TestTrackGenerator implements TrackGenerator {
       System.out.println(baseOctave);
 
       final List<Integer[]> chords = key.getChords();
-      final Integer[] relChord = chords.get((int) (Math.random() * (chords
-          .size() - 1)));
+      final Integer[] relChord = chords.get((int) (Math.random() * chords
+          .size()));
 
       System.out.println(relChord);
 
@@ -57,21 +59,14 @@ public class TestTrackGenerator implements TrackGenerator {
 
       ph.addChord(toIntArray(chord), Math.random() * 0.1 + 1.95);
     }
-
-    /*
-     * final int[] chordB1 = { c3, e3, g3 }; final int[] chordB2 = { d3, f3, a3
-     * }; final int[] chordB3 = { d3, b2, g2 }; final int[] chordB4 = { c3, a2,
-     * f2 };
-     *
-     * for (int i = 0; i < 8; i++) {
-     *
-     * ph.addChord(chordB1, 2.0); ph.addChord(chordB2, 2.0);
-     * ph.addChord(chordB3, 2.0); ph.addChord(chordB4, 2.0);
-     *
-     * }
-     */
+    System.out.println(lowestNote);
 
     return track;
+  }
+
+  public int randomRange(int min, int max) {
+    final int range = max - min + 1;
+    return (int) (Math.random() * range) + min;
   }
 
   public void printTonic(int n) {
