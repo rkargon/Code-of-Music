@@ -26,9 +26,11 @@ public class TestTrackGenerator implements TrackGenerator {
 
     int lowestNote = 100;
     for (int i = 0; i < 20000; i++) {
+
       final int newValue = baseNote + baseOctave * notesInOctave
           + randomRange(-2, 1) + randomRange(-2, 1);
       lowestNote = Math.min(lowestNote, newValue);
+
       baseNote = (newValue + notesInOctave) % notesInOctave;
       baseOctave = newValue / notesInOctave;
 
@@ -36,6 +38,7 @@ public class TestTrackGenerator implements TrackGenerator {
       System.out.println(baseOctave);
 
       final List<Integer[]> chords = key.getChords();
+
       final Integer[] relChord = chords.get((int) (Math.random() * chords
           .size()));
 
@@ -59,6 +62,7 @@ public class TestTrackGenerator implements TrackGenerator {
 
       ph.addChord(toIntArray(chord), Math.random() * 0.1 + 1.95);
     }
+
     System.out.println(lowestNote);
 
     return track;

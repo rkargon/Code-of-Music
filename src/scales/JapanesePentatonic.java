@@ -1,8 +1,8 @@
 package scales;
 
-public class JapanesePentatonic extends PentatonicScale {
+public class JapanesePentatonic extends Scale {
 
   public JapanesePentatonic(int key) {
-    super(key, new int[] {key, key + 2, key + 3, key + 7, key + 8});
+    super(key, new int[] {0, 2, 3, 7, 8});
   }
 }
