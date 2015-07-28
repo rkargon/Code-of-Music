@@ -25,8 +25,9 @@ public class TestTrackGenerator implements TrackGenerator {
     final int octaveCount = 12;
 
     for (int i = 0; i < 20000; i++) {
-      final int newValue = baseNote + baseOctave * notesInOctave
-          + (int) (Math.random() * 4) - 2 + (int) (Math.random() * 4) - 2;
+      final int newValue =
+          baseNote + baseOctave * notesInOctave + (int) (Math.random() * 4) - 2
+              + (int) (Math.random() * 4) - 2;
       baseNote = (newValue + notesInOctave) % notesInOctave;
       baseOctave = newValue / notesInOctave;
 
@@ -34,8 +35,8 @@ public class TestTrackGenerator implements TrackGenerator {
       System.out.println(baseOctave);
 
       final List<Integer[]> chords = key.getChords();
-      final Integer[] relChord = chords.get((int) (Math.random() * (chords
-          .size() - 1)));
+      final Integer[] relChord =
+          chords.get((int) (Math.random() * (chords.size() - 1)));
 
       System.out.println(relChord);
 
@@ -62,12 +63,12 @@ public class TestTrackGenerator implements TrackGenerator {
      * final int[] chordB1 = { c3, e3, g3 }; final int[] chordB2 = { d3, f3, a3
      * }; final int[] chordB3 = { d3, b2, g2 }; final int[] chordB4 = { c3, a2,
      * f2 };
-     *
+     * 
      * for (int i = 0; i < 8; i++) {
-     *
+     * 
      * ph.addChord(chordB1, 2.0); ph.addChord(chordB2, 2.0);
      * ph.addChord(chordB3, 2.0); ph.addChord(chordB4, 2.0);
-     *
+     * 
      * }
      */
 
@@ -90,7 +91,7 @@ public class TestTrackGenerator implements TrackGenerator {
     final int baseNote = (int) (Math.random() * 11) + 48;
     System.out.println(baseNote);
 
-    final int[] notePattern = { 0, 2, 4, 5, 7, 9, 11 };
+    final int[] notePattern = {0, 2, 4, 5, 7, 9, 11};
     // final int[] notePattern = { 0, 2, 3, 5, 7, 8, 10 };
     final List<Integer> notes = new ArrayList<>();
     for (final int note : notePattern) {
@@ -107,16 +108,16 @@ public class TestTrackGenerator implements TrackGenerator {
   public List<Integer[]> getChords() {
     final List<Integer[]> chords = new ArrayList<>();
 
-    final Integer[] major = { 0, 2, 4 };
-    final Integer[] major5 = { 0, 2 };
-    final Integer[] power = { 0, 4 };
-    final Integer[] sus = { 0, 3, 4 };
-    final Integer[] sus2 = { 0, 1, 4 };
-    final Integer[] sixth = { 0, 2, 4, 5 };
-    final Integer[] sixth5 = { 0, 2, 5 };
-    final Integer[] sixth9 = { 0, 2, 5, 8 };
-    final Integer[] seventh = { 0, 2, 4, 6 };
-    final Integer[] seventh5 = { 0, 2, 6 };
+    final Integer[] major = {0, 2, 4};
+    final Integer[] major5 = {0, 2};
+    final Integer[] power = {0, 4};
+    final Integer[] sus = {0, 3, 4};
+    final Integer[] sus2 = {0, 1, 4};
+    final Integer[] sixth = {0, 2, 4, 5};
+    final Integer[] sixth5 = {0, 2, 5};
+    final Integer[] sixth9 = {0, 2, 5, 8};
+    final Integer[] seventh = {0, 2, 4, 6};
+    final Integer[] seventh5 = {0, 2, 6};
 
     chords.add(major);
     chords.add(major5);
@@ -130,31 +131,6 @@ public class TestTrackGenerator implements TrackGenerator {
     chords.add(seventh5);
 
     return chords;
-  }
-
-  public class Key {
-    private final List<Integer> notes;
-    private final int baseNote;
-    private final List<Integer[]> chords;
-
-    public Key(List<Integer> notesN, int baseNoteN, List<Integer[]> chordsN) {
-      this.notes = notesN;
-      this.baseNote = baseNoteN;
-      this.chords = chordsN;
-    }
-
-    public List<Integer> getNotes() {
-      return notes;
-    }
-
-    public int getBaseNote() {
-      return baseNote;
-    }
-
-    public List<Integer[]> getChords() {
-      return chords;
-    }
-
   }
 
 }
