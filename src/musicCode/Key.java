@@ -2,6 +2,14 @@ package musicCode;
 
 import java.util.List;
 
+/**
+ * Represents a musical key, with a base note, a scale of notes, and a set of
+ * chords. Chords are represented as integer differences (e.g. {0, 2, 4} ) which
+ * are added to a given note value to make a chord.
+ *
+ * @author noahpicard
+ *
+ */
 public class Key {
   private final List<Integer> notes;
   private final int baseNote;

@@ -1,5 +1,7 @@
 package musicCode;
 
+import java.util.List;
+
 import jm.music.data.Note;
 
 /**
@@ -19,5 +21,12 @@ public class Util {
 
   public static String printNote(Note note) {
     return note.toString();
+  }
+
+  public static int[] toIntArray(List<Integer> list) {
+    final int[] ret = new int[list.size()];
+    for (int i = 0; i < ret.length; i++)
+      ret[i] = list.get(i);
+    return ret;
   }
 }

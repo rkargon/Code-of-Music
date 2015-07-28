@@ -1,9 +1,9 @@
 package scales;
 
-public class AsianPentatonic extends PentatonicScale {
+public class AsianPentatonic extends Scale {
 
   public AsianPentatonic(int key) {
-    super(key, new int[] {key, key + 2, key + 5, key + 7, key + 9});
+    super(key, new int[] {0, 2, 5, 7, 9});
   }
 
 }

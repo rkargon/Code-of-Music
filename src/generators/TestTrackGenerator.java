@@ -1,16 +1,18 @@
 package generators;
 
+import static musicCode.Util.toIntArray;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import jm.music.data.Phrase;
+import musicCode.Key;
 import musicCode.Track;
 
 public class TestTrackGenerator implements TrackGenerator {
 
   @Override
   public Track generate(Track trackN) {
-
     final Track track = trackN;
     final Phrase ph = new Phrase();
     track.add(ph);
@@ -24,7 +26,7 @@ public class TestTrackGenerator implements TrackGenerator {
     final int notesInOctave = 7;
     final int octaveCount = 12;
 
-    for (int i = 0; i < 20000; i++) {
+    for (int i = 0; i < 2.0000; i++) {
       final int newValue =
           baseNote + baseOctave * notesInOctave + (int) (Math.random() * 4) - 2
               + (int) (Math.random() * 4) - 2;
@@ -80,13 +82,12 @@ public class TestTrackGenerator implements TrackGenerator {
         + (char) ((n - 46) % 7 + 65));
   }
 
-  int[] toIntArray(List<Integer> list) {
-    final int[] ret = new int[list.size()];
-    for (int i = 0; i < ret.length; i++)
-      ret[i] = list.get(i);
-    return ret;
-  }
-
+  /**
+   * Generates a key based on a random base note, a scale of notes, and a set of
+   * chords.
+   *
+   * @returna Key
+   */
   public Key getKey() {
     final int baseNote = (int) (Math.random() * 11) + 48;
     System.out.println(baseNote);
