@@ -14,16 +14,20 @@ import scales.Scale;
  */
 public class Key {
   private final Scale scale;
-  private final List<Integer[]> chords;
+  private final List<int[]> chords;
 
-  public Key(int[] notesN, int baseNoteN, List<Integer[]> chordsN) {
+  public Key(int[] notesN, int baseNoteN, List<int[]> chordsN) {
     this.scale = new Scale(baseNoteN, notesN);
     this.chords = chordsN;
   }
 
-  public Key(Scale sc, List<Integer[]> chordsN) {
+  public Key(Scale sc, List<int[]> chordsN) {
     this.scale = sc;
     this.chords = chordsN;
+  }
+
+  public Scale getScale() {
+    return scale;
   }
 
   public int[] getNotes() {
@@ -34,7 +38,7 @@ public class Key {
     return scale.getBaseNote();
   }
 
-  public List<Integer[]> getChords() {
+  public List<int[]> getChords() {
     return chords;
   }
 }

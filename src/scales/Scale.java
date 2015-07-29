@@ -1,5 +1,7 @@
 package scales;
 
+import musicCode.Util;
+
 /**
  * Represents a set of notes, with a base note and tones related to that note.
  *
@@ -39,6 +41,19 @@ public class Scale {
    */
   public int[] getTones() {
     return tones.clone();
+  }
+
+  /**
+   * Get the numerical note, with an index corresponding to a tone, and an
+   * octave number.
+   *
+   * @param index The index of the tone the note is one.
+   * @param octave The number of octaves the note is shiftd from the scale's
+   *        base note.
+   * @return The numerical value of the note.
+   */
+  public int getNote(int index, int octave) {
+    return tones[index] + octave * 12;
   }
 
 }
